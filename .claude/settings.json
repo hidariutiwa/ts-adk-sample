@@ -1,49 +1,49 @@
 {
-	"env": {
-		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-	},
-	"permissions": {
-		"allow": [
-			"Read(/*)",
-			"Edit(/src/*)",
-			"Edit(*.env.example)",
-			"Bash(ls *)",
-			"Bash(cat *)",
-			"Bash(tail *)",
-			"Bash(echo *)",
-			"Bash(grep *)",
-			"Bash(find *)",
-			"Bash(npm run *)",
-			"Bash(gh *)",
-			"Bash(git *)",
-			"Bash(python *)"
-		],
-		"defaultMode": "auto"
-	},
-	"hooks": {
-		"PostToolUse": [
-			{
-				"matcher": "Write|Edit",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "npx prettier --write ."
-					}
-				]
-			}
-		]
-	},
-	"enabledPlugins": {
-		"context7@claude-plugins-official": true,
-		"skill-creator@claude-plugins-official": true,
-		"commit-commands@claude-plugins-official": true,
-		"chrome-devtools-mcp@claude-plugins-official": true,
-		"girls-dev-team@tamon-skills": true
-	},
-	"extraKnownMarketplaces": {
-		"tamon-skills": {
-			"source": { "source": "github", "repo": "hidariutiwa/skills" }
-		}
-	},
-	"teammateMode": "tmux"
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read(/*)",
+      "Edit(/src/*)",
+      "Edit(*.env.example)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(tail *)",
+      "Bash(echo *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(npm run *)",
+      "Bash(gh *)",
+      "Bash(git *)",
+      "Bash(python *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write ."
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "girls-dev-team@tamon-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "tamon-skills": {
+      "source": { "source": "github", "repo": "hidariutiwa/skills" }
+    }
+  },
+  "teammateMode": "tmux"
 }
