@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-	serverExternalPackages: ["@google/adk"],
-	allowedDevOrigins: ["127.0.0.1"],
+  serverExternalPackages: ["@google/adk"],
+  allowedDevOrigins: ["127.0.0.1"],
 };
 
 export default nextConfig;

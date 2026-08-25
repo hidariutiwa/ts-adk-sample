@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { sendMessage } from "./actions";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -10,9 +9,27 @@ export default function Home() {
 
   const handleSubmit = () => {
     if (!input.trim()) return;
+
+    setResponse("");
+
     startTransition(async () => {
-      const result = await sendMessage(input);
-      setResponse(result);
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: input }),
+      });
+
+      const reader = res.body?.getReader();
+      if (!reader) return;
+
+      const decoder = new TextDecoder();
+      let responseText = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        responseText += decoder.decode(value, { stream: true });
+        setResponse(responseText);
+      }
     });
   };
 
